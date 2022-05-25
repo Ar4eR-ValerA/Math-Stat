@@ -36,9 +36,10 @@ printf("Covariation:  \t\t %f \t %f\n\n", cov_theta(2), cov_theta(1));
 
 Y_matrix = A * coeff_matrix;
 Y_function = polyval(coeff_function, X);
+Y_cov_matrix = A * cov_theta;
 
-plot(X, Y, '.', X, Y_function, '+', X, Y_matrix, 'o', X, y, '-');
-legend("Selection", "Approx with Octave functions", "Approx with matrix method", "Function");
+plot(X, Y, '.', X, Y_function, '+', X, Y_matrix, 'o', X, y, '-', X, Y_cov_matrix, '^');
+legend("Selection", "Approx with Octave functions", "Approx with matrix method", "Function", "Covariance");
 axis("tight");
 
 r = Y_matrix - Y;
